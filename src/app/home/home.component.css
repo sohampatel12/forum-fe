@@ -1,0 +1,70 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+.like, .dislike, .comment {
+    cursor: pointers;
+}
+
+.material-icons {
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.material-icons:hover {
+    color: #3f51b5;
+}
+
+.example-card {
+    margin: 10px auto;
+    width: 50%;
+}
+
+.glyphicon-grp {
+    margin-top: 10px;
+}
+
+.glyphicon-text {
+    font-size: 1em;
+    margin: 5px 5px;
+}
+
+.glyphicon {
+    display: inline;
+}
+
+.post-content {
+    margin-top: 5px;
+    font-size: 1em;
+}
+
+.comments {
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+.post-comment {
+    margin-top: 5px;
+    margin-left: 40px;
+}
+
+.text-area-width {
+    width: calc(100% - 88px);
+}
+
+.button-margin {
+    margin: 0px 12px;
+}
+
+.user-label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+hr {
+    height: 1px;
+    margin-top: 10px;
+    border-style: solid;
+    border-color: lightgray;
+    border-width: 1px 0 0 0;
+}

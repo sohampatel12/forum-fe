@@ -1,0 +1,67 @@
+<mat-toolbar color="primary" class="full-width">
+  <mat-toolbar-row>
+    <span>Forum</span>
+    <span class="spacer"></span>
+    <button mat-button (click)="router.navigate(['login'])">Logout</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-card class="example-card">
+  <mat-card-content>
+    <div class="">
+      <mat-form-field class="text-area-width">
+        <!-- <mat-label>Leave a comment</mat-label> -->
+        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="2"
+          cdkAutosizeMaxRows="3" placeholder="Whats on your mind" [(ngModel)]="newPost"></textarea>
+      </mat-form-field>
+      <button mat-button color="primary" class="button-margin" (click)="createPost()">Post</button>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card *ngFor="let post of posts;" class="example-card">
+  <mat-card-content class="content">
+    <div class="user-label">
+      <p>{{post.created_by}}</p>
+    </div>
+    <div class="post-content">
+      {{post.content}}
+    </div>
+    <div class="glyphicon-grp">
+      <div class="glyphicon">
+        <i class="material-icons" (click)="like()">thumb_up</i>
+        <span class="glyphicon-text">{{[post.likes]}}</span>
+      </div>
+      <div class="glyphicon">
+        <i class="material-icons" (click)="comment()">chat_bubble</i>
+        <span class="glyphicon-text">{{[post.totalComments]}}</span>
+      </div>
+    </div>
+    <hr>
+    <div *ngFor="let comment of post.comments" class="comments">
+      <div class="user-label">
+        <p>{{comment.created_by}}</p>
+      </div>
+      <div class="post-content">
+        {{comment.content}}
+      </div>
+      <div class="glyphicon-grp">
+        <div class="glyphicon">
+          <i class="material-icons" (click)="like()">thumb_up</i>
+          <span class="glyphicon-text">{{[comment.likes]}}</span>
+        </div>
+        <!-- <div class="glyphicon">
+          <i class="material-icons" (click)="comment()">chat_bubble</i>
+          <span class="glyphicon-text">{{[.comments]}}</span>
+        </div> -->
+      </div>
+    </div>
+    <div class="post-comment">
+      <mat-form-field class="text-area-width">
+        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+          cdkAutosizeMaxRows="3" placeholder="Leave a comment" [(ngModel)]="post.comment"></textarea>
+      </mat-form-field>
+      <button mat-button color="primary" class="button-margin" (click)="addComment(post)">Comment</button>
+    </div>
+  </mat-card-content>
+</mat-card>
